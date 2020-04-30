@@ -1,0 +1,53 @@
+$cookie-message-background-color: $black;
+$cookie-message-title-color: $white;
+$cookie-message-description-color: $white;
+$cookie-message-max-width: 420px;
+$cookie-message-wrapper-padding: rem(35px) rem(30px);
+
+.c-cookie-message-wrapper {
+    position: fixed;
+    right: rem(30px);
+    bottom: rem(30px);
+    z-index: 100;
+
+    //initial state
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(30px);
+
+    @include mq(sm) {
+        right: percentage(1 / 24);
+        left: percentage(1 / 24);
+        bottom: rem(15px);
+    }
+}
+
+.c-cookie-message {
+    padding: $cookie-message-wrapper-padding;
+    max-width: rem($cookie-message-max-width);
+    background: $cookie-message-background-color;
+
+    @include mq(sm) {
+        max-width: 100%;
+    }
+
+    &__title {
+        margin-bottom: rem(10px);
+        color: $cookie-message-title-color;
+    }
+
+    &__description {
+        color: $cookie-message-description-color;
+        margin-bottom: rem(25px);
+    }
+
+    &__footer {
+        a {
+            margin-right: rem(20px);
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
